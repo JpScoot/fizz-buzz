@@ -1,21 +1,20 @@
 package com.tlglearning;
 
-public class FizzBuzz {
-  //constant fields
-  public static final String FIZZ_RESULT = "fizz";
-  public static final String BUZZ_RESULT = "buzz";
+import java.util.EnumSet;
+import java.util.Set;
 
-  //static method
-  public static String valueOf(int num) {
-    String result = "";
+public enum FizzBuzz {
+  //enuminated values
+  FIZZ, BUZZ;
+
+  //Set of FizzBuzz
+  public static Set<FizzBuzz> valueOf(int num) {
+    Set<FizzBuzz> result = EnumSet.noneOf(FizzBuzz.class);
     if (num % 3 == 0) {
-      result = FIZZ_RESULT;
+      result.add(FIZZ);
     }
     if (num % 5 == 0){
-      result += BUZZ_RESULT;
-    }
-    if (result.isEmpty()){
-      result = String.valueOf(num);
+      result.add(BUZZ);
     }
     return result;
   }
